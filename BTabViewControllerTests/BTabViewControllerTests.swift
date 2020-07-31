@@ -111,6 +111,24 @@ class BTabViewControllerTests: XCTestCase {
 
     func testTabCollectionInit() throws {
         let cell = BTabCollectionViewCell()
+        XCTAssertNil(cell.nameLabel)
+    }
+
+    func testTabCollectionInit2() throws {
+        let cell = BTabCollectionViewCell()
+        XCTAssertNil(cell.model)
+    }
+
+    func testTabCollectionConfiguration() throws {
+        let cell = BTabCollectionViewCell()
+        let item = BTabItemModel(order: 0, title: "1")
+        cell.configureCell(item)
+        XCTAssertNotNil(cell.model)
+    }
+
+    func testTabCollectionAwake() throws {
+        let cell = BTabCollectionViewCell()
+        cell.awakeFromNib()
         XCTAssertNil(cell.model)
         XCTAssertNil(cell.nameLabel)
     }

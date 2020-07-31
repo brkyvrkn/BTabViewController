@@ -20,7 +20,6 @@ open class BTabCollectionViewCell: UICollectionViewCell {
 
     override open func awakeFromNib() {
         super.awakeFromNib()
-        
     }
 
     open func configureCell(_ model: BTabItemModel) {
@@ -28,12 +27,14 @@ open class BTabCollectionViewCell: UICollectionViewCell {
         UIView.animate(withDuration: 0.4, animations: {
             self.setTheme(selection: model.getActive())
         }, completion: nil)
+        guard nameLabel != nil else { return }
         self.nameLabel.textAlignment = model.textAlignment
         self.nameLabel.text = model.title
     }
 
     private func setTheme(selection: Bool) {
         guard model != nil else { return }
+        guard nameLabel != nil else { return }
         if selection {
             self.nameLabel.font = model!.highlightFont
             self.nameLabel.textColor = model!.highlightTextColor
@@ -42,5 +43,4 @@ open class BTabCollectionViewCell: UICollectionViewCell {
             self.nameLabel.textColor = model!.titleTextColor
         }
     }
-
 }
