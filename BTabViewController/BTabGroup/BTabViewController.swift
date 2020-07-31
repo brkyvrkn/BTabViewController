@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol BTabViewControllerDelegate {
+protocol BTabViewControllerProtocol: class {
     /// Trigger just tapping on the tab no matter the previous state
     /// - Parameters:
     ///   - target: Which container class did triggerred
@@ -79,7 +79,7 @@ struct BTabListModel {
     }
 }
 
-class BTabViewController: UIViewController, BTabViewControllerDelegate {
+class BTabViewController: UIViewController {
 
     // MARK: - Properties
     // Models

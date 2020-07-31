@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension BTabViewController {
+extension BTabViewController: BTabViewControllerProtocol {
 
     func listTab(_ target: UIViewController, didSelect item: BTabItemModel, index: Int) {
 //        print(String(format: "%@\ntarget=%@\tselected=%@\tindex=%d", "BTabViewController:::::>\(#function)", target, item.title, index))
