@@ -57,10 +57,76 @@ class BTabViewControllerTests: XCTestCase {
         XCTAssertFalse(tabItem == tabItem2)
     }
 
+    func testTabListModelInit() throws {
+        let vc = UIViewController()
+        let listItem = BTabListModel(id: "1", target: vc)
+        XCTAssert(listItem.id == "1")
+        XCTAssertEqual(listItem.target, vc)
+    }
+
+    func testTabListModelInit2() throws {
+        let vc = UIViewController()
+        let listItem = BTabListModel(id: "1", target: vc)
+        XCTAssert(listItem.id == "1")
+        XCTAssertNotEqual(listItem.target, UIViewController())
+    }
+
+    func testTabListModelInit3() throws {
+        let vc = UIViewController()
+        let listItem = BTabListModel(id: "2", target: vc)
+        XCTAssertEqual(listItem.id, "2")
+        XCTAssertNotEqual(listItem.target, UIViewController())
+    }
+
+    func testTabListModelInit4() throws {
+        let vc = UIViewController()
+        let listItem = BTabListModel(id: "2", target: vc)
+        XCTAssertNotEqual(listItem.id, "1")
+        XCTAssertEqual(listItem.target, vc)
+    }
+
+    func testTabVCInit() throws {
+        let vc = BTabViewController()
+        XCTAssertEqual(vc.containers.count, 0)
+        XCTAssertEqual(vc.tabList.count, 0)
+        XCTAssertEqual(vc.tabItems.count, 0)
+        XCTAssertNil(vc.horizontalScrollView)
+    }
+
+    func testTabVCInit2() throws {
+        let vc = BTabViewController()
+        XCTAssertEqual(vc.containers.count, 0)
+        XCTAssertEqual(vc.tabList.count, 0)
+        XCTAssertEqual(vc.tabItems.count, 0)
+        XCTAssertNil(vc.tabCollectionView)
+    }
+
+    func testTabVCInit3() throws {
+        let vc = BTabViewController()
+        XCTAssertEqual(vc.containers.count, 0)
+        XCTAssertEqual(vc.tabList.count, 0)
+        XCTAssertEqual(vc.tabItems.count, 0)
+        XCTAssertNil(vc.selectedTab)
+    }
+
+    func testTabCollectionInit() throws {
+        let cell = BTabCollectionViewCell()
+        XCTAssertNil(cell.model)
+        XCTAssertNil(cell.nameLabel)
+    }
+
+    func testTabCollectionIdentifier() throws {
+        XCTAssertEqual("BTabCollectionViewCell", BTabCollectionViewCell.identifier)
+    }
+
+    func testTabCollectionNibName() throws {
+        XCTAssertEqual("BTabCollectionViewCell", BTabCollectionViewCell.nibName)
+    }
+
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measure {
-            // Put the code you want to measure the time of here.
+
         }
     }
 
