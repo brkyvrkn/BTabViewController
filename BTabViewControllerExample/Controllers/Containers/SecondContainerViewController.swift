@@ -7,13 +7,21 @@
 //
 
 import UIKit
+import BTabViewController
 
-class SecondContainerViewController: UIViewController {
+class SecondContainerViewController: BTabViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
 
+    // MARK: - BTab Stuff
+    override func setView(tabList: [BTabListModel], tabItems: [BTabItemModel]) {
+        
+    }
+
+    override func listTab(_ target: UIViewController, tabSwitched to: BTabItemModel) {
+        super.listTab(target, tabSwitched: to)
+    }
 }

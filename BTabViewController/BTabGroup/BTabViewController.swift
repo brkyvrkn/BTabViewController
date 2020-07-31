@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol BTabViewControllerProtocol: class {
+public protocol BTabViewControllerProtocol: class {
     /// Trigger just tapping on the tab no matter the previous state
     /// - Parameters:
     ///   - target: Which container class did triggerred
@@ -23,16 +23,16 @@ protocol BTabViewControllerProtocol: class {
 }
 
 /// Order should begin with zero
-struct BTabItemModel: Equatable {
+public struct BTabItemModel: Equatable {
     // Attributes
-    var order: Int
-    var title: String
-    var titleFont: UIFont = .systemFont(ofSize: 12)
-    var titleTextColor: UIColor = .init(red: 64/255.0, green: 64/255.0, blue: 64/255.0, alpha: 1.0)
-    var highlightFont: UIFont = .systemFont(ofSize: 12, weight: .bold)
-    var highlightTextColor: UIColor = .init(red: 64/255.0, green: 64/255.0, blue: 64/255.0, alpha: 1.0)
-    var backgroundColor: UIColor = .clear
-    var textAlignment: NSTextAlignment = .left
+    public var order: Int
+    public var title: String
+    public var titleFont: UIFont = .systemFont(ofSize: 12)
+    public var titleTextColor: UIColor = .init(red: 64/255.0, green: 64/255.0, blue: 64/255.0, alpha: 1.0)
+    public var highlightFont: UIFont = .systemFont(ofSize: 12, weight: .bold)
+    public var highlightTextColor: UIColor = .init(red: 64/255.0, green: 64/255.0, blue: 64/255.0, alpha: 1.0)
+    public var backgroundColor: UIColor = .clear
+    public var textAlignment: NSTextAlignment = .left
     // Private protection level attributes
     private var isActive: Bool = false
 
@@ -40,7 +40,7 @@ struct BTabItemModel: Equatable {
     /// - Parameters:
     ///   - order: Left-most index position of given tab
     ///   - title: Text
-    init(order: Int, title: String) {
+    public init(order: Int, title: String) {
         self.order = order
         self.title = title.trimmingCharacters(in: .whitespacesAndNewlines).capitalized
     }
@@ -49,7 +49,7 @@ struct BTabItemModel: Equatable {
         self.isActive = isActive
     }
 
-    func getActive() -> Bool {
+    public func getActive() -> Bool {
         return self.isActive
     }
 
@@ -58,28 +58,28 @@ struct BTabItemModel: Equatable {
     ///   - lhs: Left hand side
     ///   - rhs: Right hand side
     /// - Returns: True if their orders are equal
-    static func ==(lhs: BTabItemModel, rhs: BTabItemModel) -> Bool {
+    public static func ==(lhs: BTabItemModel, rhs: BTabItemModel) -> Bool {
         return lhs.order == rhs.order
     }
 }
 
 /// To define child view controllers and their id
-struct BTabListModel {
+public struct BTabListModel {
     // Attributes
-    var id: String
-    var target: UIViewController
+    public var id: String
+    public var target: UIViewController
 
     /// Initializer
     /// - Parameters:
     ///   - id: Identifier of target
     ///   - target: View controller target for child
-    init(id: String, target: UIViewController) {
+    public init(id: String, target: UIViewController) {
         self.id = id
         self.target = target
     }
 }
 
-class BTabViewController: UIViewController {
+open class BTabViewController: UIViewController {
 
     // MARK: - Properties
     // Models
@@ -103,36 +103,36 @@ class BTabViewController: UIViewController {
         }
     }
     // UIViews
-    internal var tabCollectionView: UICollectionView?
-    internal var tabLayout: UICollectionViewFlowLayout?
-    internal var horizontalScrollView: UIScrollView?
-    internal var containers: [UIView] = []
+    open var tabCollectionView: UICollectionView?
+    open var tabLayout: UICollectionViewFlowLayout?
+    open var horizontalScrollView: UIScrollView?
+    open var containers: [UIView] = []
     // Tabs
-    internal var tabsGap: CGFloat = 8
-    internal var tabInset: CGFloat = 12
-    internal var tabWidth: CGFloat = 80
-    internal var tabsHeight: CGFloat = 50
-    internal var tabAlignment: NSTextAlignment = .left
+    open var tabsGap: CGFloat = 8
+    open var tabInset: CGFloat = 12
+    open var tabWidth: CGFloat = 80
+    open var tabsHeight: CGFloat = 50
+    open var tabAlignment: NSTextAlignment = .left
     // Flags
-    internal var fitTabs: Bool = false
-    internal var indicatorIsRounded: Bool = true
-    internal var isIndicatorVisible: Bool = true
-    internal var isIndicatorSlide: Bool = false
+    open var fitTabs: Bool = false
+    open var indicatorIsRounded: Bool = true
+    open var isIndicatorVisible: Bool = true
+    open var isIndicatorSlide: Bool = false
     // Indicator
-    internal var indicatorView: UIView?
-    internal var indicatorHeight: CGFloat = 4
-    internal var indicatorWidth: CGFloat = 20
-    internal var indicatorColor: UIColor = .init(red: 64/255.0, green: 64/255.0, blue: 64/255.0, alpha: 1.0)
+    open var indicatorView: UIView?
+    open var indicatorHeight: CGFloat = 4
+    open var indicatorWidth: CGFloat = 20
+    open var indicatorColor: UIColor = .init(red: 64/255.0, green: 64/255.0, blue: 64/255.0, alpha: 1.0)
     private var indicatorLeading: CGFloat = 0
 
-    override func loadView() {
+    override open func loadView() {
         super.loadView()
 //        print("BTabViewController:::::>\(#function)")
         setView(tabList: self.tabList, tabItems: self.tabItems)
     }
 
     /// Draw custom views
-    override func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad()
 //        print(String(format: "%@\n%@\n%@", "BTabViewController:::::>\(#function)", tabList, tabItems))
         if tabCollectionView == nil && tabLayout == nil {
@@ -151,7 +151,7 @@ class BTabViewController: UIViewController {
     }
 
     /// Attach custom views and frame operations
-    override func viewWillLayoutSubviews() {
+    override open func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         if tabCollectionView != nil && tabLayout != nil {
             attachTabs(base: tabCollectionView!)
@@ -175,7 +175,7 @@ class BTabViewController: UIViewController {
         }
     }
 
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+    override open func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
         if horizontalScrollView != nil, selectedTab != nil {
             scrollTab(horizontalScrollView!, base: view, toTab: selectedTab!)
@@ -190,13 +190,21 @@ class BTabViewController: UIViewController {
         attachIndicator(instance: indicatorView!, forView: tabCollectionView!, selected: selectedTab!, forceUpdate: true)
     }
 
-    internal func setView(tabList: [BTabListModel], tabItems: [BTabItemModel]) {
+    open func setView(tabList: [BTabListModel], tabItems: [BTabItemModel]) {
 //        print(String(format: "%@\n%@\n%@", "BTabViewController:::::>\(#function)", tabList, tabItems))
         self.tabItems = tabItems
         self.tabList = tabList
         if tabList.count != tabItems.count {
             fatalError(NSLocalizedString("Tab count must equal to the target size", comment: ""))
         }
+    }
+
+    open func listTab(_ target: UIViewController, didSelect item: BTabItemModel, index: Int) {
+//        print(String(format: "%@\ntarget=%@\tselected=%@\tindex=%d", "BTabViewController:::::>\(#function)", target, item.title, index))
+    }
+
+    open func listTab(_ target: UIViewController, tabSwitched to: BTabItemModel) {
+//        print(String(format: "%@\ntarget=%@\tswitched to=%@", "BTabViewController:::::>\(#function)", target, to.title))
     }
 
     // MARK: - Tabs
@@ -215,7 +223,7 @@ class BTabViewController: UIViewController {
     /// Determine the collection cell size for all tabs
     /// - Parameter base: Tabs collection view
     /// - Returns: Size of the tab
-    func setTabSizes(base: UICollectionView) -> CGSize {
+    open func setTabSizes(base: UICollectionView) -> CGSize {
         if fitTabs {
             let gapWidth = CGFloat(tabItems.count - 1) * tabsGap
             let outzoneWidth = (2 * tabInset) + gapWidth
@@ -235,7 +243,7 @@ class BTabViewController: UIViewController {
 
     /// Add the tab collection view inside of the parent view
     /// - Parameter base: Base tab collection view
-    func attachTabs(base: UICollectionView) {
+    private func attachTabs(base: UICollectionView) {
         guard base.tag != 69 else { return }
         base.tag = 69
         view.addSubview(base)
@@ -258,7 +266,7 @@ class BTabViewController: UIViewController {
     /// - Note: It does not reload the tab collection view,
     /// just set the activation state of the tab item for tabItems in BTabViewController.swift
     /// - Parameter order: Order of the tab with left-most direction
-    func activateTab(order: Int) {
+    open func activateTab(order: Int) {
         if order < tabItems.count {
             for i in 0..<tabItems.count {
                 if i == order {
@@ -276,7 +284,7 @@ class BTabViewController: UIViewController {
     ///   - forView: Corresponding tab collection view
     ///   - selected: Selected tab model to distinguish the leading margin
     ///   - forceUpdate: If indicator has already drawn, 'true' value will draw again without copy
-    func attachIndicator(instance: UIView, forView: UICollectionView, selected: BTabItemModel, forceUpdate: Bool) {
+    open func attachIndicator(instance: UIView, forView: UICollectionView, selected: BTabItemModel, forceUpdate: Bool) {
         guard isIndicatorVisible else { return }
         if (instance.tag == 89 && forceUpdate) || instance.tag != 89 {
             if instance.tag != 89 {
@@ -331,7 +339,7 @@ class BTabViewController: UIViewController {
     /// Get n-th order child view controller
     /// - Parameter order: Given order
     /// - Returns: Target if instantiated
-    func getTarget(of order: Int) -> UIViewController? {
+    open func getTarget(of order: Int) -> UIViewController? {
         if order > 0 && order < self.tabList.count {
             return self.tabList[order].target
         }
@@ -341,14 +349,14 @@ class BTabViewController: UIViewController {
     /// Get child view controller with given id
     /// - Parameter id: Identifier of child view controller
     /// - Returns: Target if instantiated
-    func getTarget(_ id: String) -> UIViewController? {
+    open func getTarget(_ id: String) -> UIViewController? {
         return self.tabList.first(where: { $0.id == id })?.target
     }
 
     /// Get child view inside of the BTabViewController
     /// - Parameter order: n-th order (begins with zero)
     /// - Returns: UIView if container list contains
-    func getContainer(of order: Int) -> UIView? {
+    open func getContainer(of order: Int) -> UIView? {
         if order > 0 && order < self.containers.count {
             return self.containers[order]
         }
@@ -357,7 +365,7 @@ class BTabViewController: UIViewController {
 
     /// Add scroll view inside of the parent view w.r.t the size of tab collection view
     /// - Parameter base: Base scroll view
-    func attachViews(base: UIScrollView) {
+    private func attachViews(base: UIScrollView) {
         guard self.tabCollectionView != nil else {
             fatalError(NSLocalizedString("Tabs must be creted and attached into view before the targets are created", comment: ""))
         }
@@ -462,22 +470,22 @@ class BTabViewController: UIViewController {
 // MARK: - Collection View
 extension BTabViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
+    open func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
 
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    open func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return tabItems.count
     }
 
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    open func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BTabCollectionViewCell.identifier, for: indexPath) as! BTabCollectionViewCell
         let item = tabItems[indexPath.row]
         cell.configureCell(item)
         return cell
     }
 
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    open func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
         let item = tabItems[indexPath.row]
         let target = tabList[indexPath.row].target
@@ -493,19 +501,19 @@ extension BTabViewController: UICollectionViewDelegate, UICollectionViewDataSour
         }
     }
 
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    open func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return self.setTabSizes(base: collectionView)
     }
 
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+    open func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return tabsGap
     }
 
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+    open func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 10
     }
 
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+    open func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return .init(top: 0, left: tabInset, bottom: 0, right: tabInset)
     }
 }
@@ -513,7 +521,7 @@ extension BTabViewController: UICollectionViewDelegate, UICollectionViewDataSour
 // MARK: - Scroll View
 extension BTabViewController: UIScrollViewDelegate {
 
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    open func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView == horizontalScrollView {
             let pageIdx = Int(floor(scrollView.contentOffset.x / view.bounds.width))
             let viewScrollDiff = Float(Int(scrollView.contentOffset.x) % Int(view.bounds.width))
@@ -545,7 +553,7 @@ extension BTabViewController: UIScrollViewDelegate {
         }
     }
 
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+    open func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         if scrollView == horizontalScrollView {
             let pageIdx = Int(floor(scrollView.contentOffset.x / view.bounds.width))
             if indicatorView != nil, tabCollectionView != nil, selectedTab != nil {

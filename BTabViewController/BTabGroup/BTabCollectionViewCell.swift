@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BTabCollectionViewCell: UICollectionViewCell {
+open class BTabCollectionViewCell: UICollectionViewCell {
 
     // MARK: - Outlets
     @IBOutlet weak var nameLabel: UILabel!
@@ -18,12 +18,12 @@ class BTabCollectionViewCell: UICollectionViewCell {
     static let nibName = "BTabCollectionViewCell"
     var model: BTabItemModel?
 
-    override func awakeFromNib() {
+    override open func awakeFromNib() {
         super.awakeFromNib()
         
     }
 
-    func configureCell(_ model: BTabItemModel) {
+    open func configureCell(_ model: BTabItemModel) {
         self.model = model
         UIView.animate(withDuration: 0.4, animations: {
             self.setTheme(selection: model.getActive())
@@ -32,7 +32,7 @@ class BTabCollectionViewCell: UICollectionViewCell {
         self.nameLabel.text = model.title
     }
 
-    func setTheme(selection: Bool) {
+    private func setTheme(selection: Bool) {
         guard model != nil else { return }
         if selection {
             self.nameLabel.font = model!.highlightFont

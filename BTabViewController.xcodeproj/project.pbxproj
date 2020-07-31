@@ -8,13 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		ED9F038E95A1E865709F1E65 /* Pods_BTabViewController_BTabViewControllerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F94307B8545F7554C0A12A9 /* Pods_BTabViewController_BTabViewControllerTests.framework */; };
+		F075199B24D4A80400A7E081 /* ExampleStoryboards.swift in Sources */ = {isa = PBXBuildFile; fileRef = F075199A24D4A80400A7E081 /* ExampleStoryboards.swift */; };
+		F075199D24D4A98800A7E081 /* FirstTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F075199C24D4A98800A7E081 /* FirstTabViewController.swift */; };
+		F075199F24D4AA2300A7E081 /* SecondTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F075199E24D4AA2300A7E081 /* SecondTabViewController.swift */; };
+		F07519A124D4AA2E00A7E081 /* ThirdTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07519A024D4AA2E00A7E081 /* ThirdTabViewController.swift */; };
+		F07519A324D4AA3D00A7E081 /* FourthTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07519A224D4AA3D00A7E081 /* FourthTabViewController.swift */; };
+		F07519A524D4AA4600A7E081 /* FifthTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07519A424D4AA4600A7E081 /* FifthTabViewController.swift */; };
+		F07519A724D4AA5000A7E081 /* SixthTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07519A624D4AA5000A7E081 /* SixthTabViewController.swift */; };
+		F07519A924D4B68400A7E081 /* BTabCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0D1889E24D459A500FEBA72 /* BTabCollectionViewCell.xib */; };
+		F07519AA24D4B68900A7E081 /* BTabCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D1889D24D459A500FEBA72 /* BTabCollectionViewCell.swift */; };
+		F07519AB24D4B69A00A7E081 /* BTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D1889F24D459A500FEBA72 /* BTabViewController.swift */; };
 		F0D1888C24D4517700FEBA72 /* BTabViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0D1888224D4517700FEBA72 /* BTabViewController.framework */; };
 		F0D1889124D4517700FEBA72 /* BTabViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D1889024D4517700FEBA72 /* BTabViewControllerTests.swift */; };
 		F0D1889324D4517700FEBA72 /* BTabViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = F0D1888524D4517700FEBA72 /* BTabViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F0D188A124D459A500FEBA72 /* BTabCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D1889D24D459A500FEBA72 /* BTabCollectionViewCell.swift */; };
 		F0D188A224D459A500FEBA72 /* BTabCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0D1889E24D459A500FEBA72 /* BTabCollectionViewCell.xib */; };
 		F0D188A324D459A500FEBA72 /* BTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D1889F24D459A500FEBA72 /* BTabViewController.swift */; };
-		F0D188A424D459A500FEBA72 /* BTabViewController+Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D188A024D459A500FEBA72 /* BTabViewController+Protocol.swift */; };
 		F0D188A624D47F1700FEBA72 /* Pods_BTabViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0D188A524D47F1700FEBA72 /* Pods_BTabViewController.framework */; };
 		F0D188A724D47F1700FEBA72 /* Pods_BTabViewController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F0D188A524D47F1700FEBA72 /* Pods_BTabViewController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F0D188AA24D486C500FEBA72 /* BTabViewController.podspec in Resources */ = {isa = PBXBuildFile; fileRef = F0D188A924D486C500FEBA72 /* BTabViewController.podspec */; };
@@ -78,6 +87,13 @@
 		59429254E8D7F0869D4DCBF0 /* Pods_BTabViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BTabViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9853F82DEC2BAE7513CC3058 /* Pods-BTabViewController-BTabViewControllerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BTabViewController-BTabViewControllerTests.debug.xcconfig"; path = "Target Support Files/Pods-BTabViewController-BTabViewControllerTests/Pods-BTabViewController-BTabViewControllerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C816EE473206DF3D53AC8247 /* Pods-BTabViewController-BTabViewControllerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BTabViewController-BTabViewControllerTests.release.xcconfig"; path = "Target Support Files/Pods-BTabViewController-BTabViewControllerTests/Pods-BTabViewController-BTabViewControllerTests.release.xcconfig"; sourceTree = "<group>"; };
+		F075199A24D4A80400A7E081 /* ExampleStoryboards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleStoryboards.swift; sourceTree = "<group>"; };
+		F075199C24D4A98800A7E081 /* FirstTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTabViewController.swift; sourceTree = "<group>"; };
+		F075199E24D4AA2300A7E081 /* SecondTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondTabViewController.swift; sourceTree = "<group>"; };
+		F07519A024D4AA2E00A7E081 /* ThirdTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdTabViewController.swift; sourceTree = "<group>"; };
+		F07519A224D4AA3D00A7E081 /* FourthTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthTabViewController.swift; sourceTree = "<group>"; };
+		F07519A424D4AA4600A7E081 /* FifthTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FifthTabViewController.swift; sourceTree = "<group>"; };
+		F07519A624D4AA5000A7E081 /* SixthTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SixthTabViewController.swift; sourceTree = "<group>"; };
 		F0D1888224D4517700FEBA72 /* BTabViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BTabViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0D1888524D4517700FEBA72 /* BTabViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BTabViewController.h; sourceTree = "<group>"; };
 		F0D1888624D4517700FEBA72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -87,7 +103,6 @@
 		F0D1889D24D459A500FEBA72 /* BTabCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTabCollectionViewCell.swift; sourceTree = "<group>"; };
 		F0D1889E24D459A500FEBA72 /* BTabCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BTabCollectionViewCell.xib; sourceTree = "<group>"; };
 		F0D1889F24D459A500FEBA72 /* BTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTabViewController.swift; sourceTree = "<group>"; };
-		F0D188A024D459A500FEBA72 /* BTabViewController+Protocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BTabViewController+Protocol.swift"; sourceTree = "<group>"; };
 		F0D188A524D47F1700FEBA72 /* Pods_BTabViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_BTabViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0D188A924D486C500FEBA72 /* BTabViewController.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = BTabViewController.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		F0D188AB24D486E900FEBA72 /* codecov.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = codecov.yml; sourceTree = "<group>"; };
@@ -176,6 +191,19 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		F075199924D4A7B300A7E081 /* Tabs */ = {
+			isa = PBXGroup;
+			children = (
+				F075199C24D4A98800A7E081 /* FirstTabViewController.swift */,
+				F075199E24D4AA2300A7E081 /* SecondTabViewController.swift */,
+				F07519A024D4AA2E00A7E081 /* ThirdTabViewController.swift */,
+				F07519A224D4AA3D00A7E081 /* FourthTabViewController.swift */,
+				F07519A424D4AA4600A7E081 /* FifthTabViewController.swift */,
+				F07519A624D4AA5000A7E081 /* SixthTabViewController.swift */,
+			);
+			path = Tabs;
+			sourceTree = "<group>";
+		};
 		F0D1887824D4517700FEBA72 = {
 			isa = PBXGroup;
 			children = (
@@ -230,7 +258,6 @@
 				F0D1889D24D459A500FEBA72 /* BTabCollectionViewCell.swift */,
 				F0D1889E24D459A500FEBA72 /* BTabCollectionViewCell.xib */,
 				F0D1889F24D459A500FEBA72 /* BTabViewController.swift */,
-				F0D188A024D459A500FEBA72 /* BTabViewController+Protocol.swift */,
 			);
 			path = BTabGroup;
 			sourceTree = "<group>";
@@ -243,6 +270,7 @@
 				F0D188E524D4A38400FEBA72 /* Controllers */,
 				F0D188E624D4A38B00FEBA72 /* Resources */,
 				F0D188E324D4A1F100FEBA72 /* Storyboards */,
+				F075199A24D4A80400A7E081 /* ExampleStoryboards.swift */,
 			);
 			path = BTabViewControllerExample;
 			sourceTree = "<group>";
@@ -290,6 +318,7 @@
 				F0D188E724D4A3BD00FEBA72 /* FirstViewController.swift */,
 				F0D188E924D4A3E200FEBA72 /* SecondViewController.swift */,
 				F0D188F124D4A49D00FEBA72 /* Containers */,
+				F075199924D4A7B300A7E081 /* Tabs */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -494,6 +523,7 @@
 				F0D188F024D4A41700FEBA72 /* Tabs.storyboard in Resources */,
 				F0D188C224D49FB200FEBA72 /* LaunchScreen.storyboard in Resources */,
 				F0D188BF24D49FB200FEBA72 /* Assets.xcassets in Resources */,
+				F07519A924D4B68400A7E081 /* BTabCollectionViewCell.xib in Resources */,
 				F0D188BD24D49FAD00FEBA72 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -568,7 +598,6 @@
 			files = (
 				F0D188A124D459A500FEBA72 /* BTabCollectionViewCell.swift in Sources */,
 				F0D188A324D459A500FEBA72 /* BTabViewController.swift in Sources */,
-				F0D188A424D459A500FEBA72 /* BTabViewController+Protocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -584,12 +613,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F07519AB24D4B69A00A7E081 /* BTabViewController.swift in Sources */,
+				F075199B24D4A80400A7E081 /* ExampleStoryboards.swift in Sources */,
 				F0D188EA24D4A3E200FEBA72 /* SecondViewController.swift in Sources */,
+				F07519A524D4AA4600A7E081 /* FifthTabViewController.swift in Sources */,
+				F07519AA24D4B68900A7E081 /* BTabCollectionViewCell.swift in Sources */,
 				F0D188EC24D4A3F400FEBA72 /* FirstContainerViewController.swift in Sources */,
+				F075199F24D4AA2300A7E081 /* SecondTabViewController.swift in Sources */,
 				F0D188E824D4A3BD00FEBA72 /* FirstViewController.swift in Sources */,
+				F07519A324D4AA3D00A7E081 /* FourthTabViewController.swift in Sources */,
 				F0D188B624D49FAD00FEBA72 /* AppDelegate.swift in Sources */,
+				F07519A124D4AA2E00A7E081 /* ThirdTabViewController.swift in Sources */,
+				F075199D24D4A98800A7E081 /* FirstTabViewController.swift in Sources */,
 				F0D188EE24D4A3FF00FEBA72 /* SecondContainerViewController.swift in Sources */,
 				F0D188B824D49FAD00FEBA72 /* SceneDelegate.swift in Sources */,
+				F07519A724D4AA5000A7E081 /* SixthTabViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
