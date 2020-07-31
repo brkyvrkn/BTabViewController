@@ -1,4 +1,6 @@
 language: objeective-c
+xcode_project: BTabViewController.xcodeproj # path to your xcodeproj folder
+xcode_scheme: BTabViewControllerTests
 
 osx_image: xcode11.5
 env:
