@@ -20,6 +20,14 @@
 		F0D188AA24D486C500FEBA72 /* BTabViewController.podspec in Resources */ = {isa = PBXBuildFile; fileRef = F0D188A924D486C500FEBA72 /* BTabViewController.podspec */; };
 		F0D188AC24D486E900FEBA72 /* codecov.yml in Resources */ = {isa = PBXBuildFile; fileRef = F0D188AB24D486E900FEBA72 /* codecov.yml */; };
 		F0D188AE24D486F900FEBA72 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = F0D188AD24D486F900FEBA72 /* README.md */; };
+		F0D188B624D49FAD00FEBA72 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D188B524D49FAD00FEBA72 /* AppDelegate.swift */; };
+		F0D188B824D49FAD00FEBA72 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D188B724D49FAD00FEBA72 /* SceneDelegate.swift */; };
+		F0D188BA24D49FAD00FEBA72 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D188B924D49FAD00FEBA72 /* ViewController.swift */; };
+		F0D188BD24D49FAD00FEBA72 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0D188BB24D49FAD00FEBA72 /* Main.storyboard */; };
+		F0D188BF24D49FB200FEBA72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0D188BE24D49FB200FEBA72 /* Assets.xcassets */; };
+		F0D188C224D49FB200FEBA72 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0D188C024D49FB200FEBA72 /* LaunchScreen.storyboard */; };
+		F0D188CD24D49FB200FEBA72 /* BTabViewControllerExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D188CC24D49FB200FEBA72 /* BTabViewControllerExampleTests.swift */; };
+		F0D188D824D49FB200FEBA72 /* BTabViewControllerExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D188D724D49FB200FEBA72 /* BTabViewControllerExampleUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +37,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = F0D1888124D4517700FEBA72;
 			remoteInfo = BTabViewController;
+		};
+		F0D188C924D49FB200FEBA72 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F0D1887924D4517700FEBA72 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F0D188B224D49FAD00FEBA72;
+			remoteInfo = BTabViewControllerExample;
+		};
+		F0D188D424D49FB200FEBA72 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F0D1887924D4517700FEBA72 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F0D188B224D49FAD00FEBA72;
+			remoteInfo = BTabViewControllerExample;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -66,6 +88,20 @@
 		F0D188A924D486C500FEBA72 /* BTabViewController.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = BTabViewController.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		F0D188AB24D486E900FEBA72 /* codecov.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = codecov.yml; sourceTree = "<group>"; };
 		F0D188AD24D486F900FEBA72 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		F0D188B324D49FAD00FEBA72 /* BTabViewControllerExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BTabViewControllerExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F0D188B524D49FAD00FEBA72 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F0D188B724D49FAD00FEBA72 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		F0D188B924D49FAD00FEBA72 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F0D188BC24D49FAD00FEBA72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F0D188BE24D49FB200FEBA72 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F0D188C124D49FB200FEBA72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F0D188C324D49FB200FEBA72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F0D188C824D49FB200FEBA72 /* BTabViewControllerExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BTabViewControllerExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F0D188CC24D49FB200FEBA72 /* BTabViewControllerExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTabViewControllerExampleTests.swift; sourceTree = "<group>"; };
+		F0D188CE24D49FB200FEBA72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F0D188D324D49FB200FEBA72 /* BTabViewControllerExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BTabViewControllerExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F0D188D724D49FB200FEBA72 /* BTabViewControllerExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BTabViewControllerExampleUITests.swift; sourceTree = "<group>"; };
+		F0D188D924D49FB200FEBA72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F306CE6778DBF6000E860C49 /* Pods-BTabViewController.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BTabViewController.release.xcconfig"; path = "Target Support Files/Pods-BTabViewController/Pods-BTabViewController.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -84,6 +120,27 @@
 			files = (
 				F0D1888C24D4517700FEBA72 /* BTabViewController.framework in Frameworks */,
 				ED9F038E95A1E865709F1E65 /* Pods_BTabViewController_BTabViewControllerTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F0D188B024D49FAD00FEBA72 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F0D188C524D49FB200FEBA72 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F0D188D024D49FB200FEBA72 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,6 +176,9 @@
 				F0D188AD24D486F900FEBA72 /* README.md */,
 				F0D1888424D4517700FEBA72 /* BTabViewController */,
 				F0D1888F24D4517700FEBA72 /* BTabViewControllerTests */,
+				F0D188B424D49FAD00FEBA72 /* BTabViewControllerExample */,
+				F0D188CB24D49FB200FEBA72 /* BTabViewControllerExampleTests */,
+				F0D188D624D49FB200FEBA72 /* BTabViewControllerExampleUITests */,
 				F0D1888324D4517700FEBA72 /* Products */,
 				0563AD1DAAF84A971436CD06 /* Pods */,
 				5288BDE40C4A0D9F9A8CDA97 /* Frameworks */,
@@ -130,6 +190,9 @@
 			children = (
 				F0D1888224D4517700FEBA72 /* BTabViewController.framework */,
 				F0D1888B24D4517700FEBA72 /* BTabViewControllerTests.xctest */,
+				F0D188B324D49FAD00FEBA72 /* BTabViewControllerExample.app */,
+				F0D188C824D49FB200FEBA72 /* BTabViewControllerExampleTests.xctest */,
+				F0D188D324D49FB200FEBA72 /* BTabViewControllerExampleUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -162,6 +225,38 @@
 				F0D188A024D459A500FEBA72 /* BTabViewController+Protocol.swift */,
 			);
 			path = BTabGroup;
+			sourceTree = "<group>";
+		};
+		F0D188B424D49FAD00FEBA72 /* BTabViewControllerExample */ = {
+			isa = PBXGroup;
+			children = (
+				F0D188B524D49FAD00FEBA72 /* AppDelegate.swift */,
+				F0D188B724D49FAD00FEBA72 /* SceneDelegate.swift */,
+				F0D188B924D49FAD00FEBA72 /* ViewController.swift */,
+				F0D188BB24D49FAD00FEBA72 /* Main.storyboard */,
+				F0D188BE24D49FB200FEBA72 /* Assets.xcassets */,
+				F0D188C024D49FB200FEBA72 /* LaunchScreen.storyboard */,
+				F0D188C324D49FB200FEBA72 /* Info.plist */,
+			);
+			path = BTabViewControllerExample;
+			sourceTree = "<group>";
+		};
+		F0D188CB24D49FB200FEBA72 /* BTabViewControllerExampleTests */ = {
+			isa = PBXGroup;
+			children = (
+				F0D188CC24D49FB200FEBA72 /* BTabViewControllerExampleTests.swift */,
+				F0D188CE24D49FB200FEBA72 /* Info.plist */,
+			);
+			path = BTabViewControllerExampleTests;
+			sourceTree = "<group>";
+		};
+		F0D188D624D49FB200FEBA72 /* BTabViewControllerExampleUITests */ = {
+			isa = PBXGroup;
+			children = (
+				F0D188D724D49FB200FEBA72 /* BTabViewControllerExampleUITests.swift */,
+				F0D188D924D49FB200FEBA72 /* Info.plist */,
+			);
+			path = BTabViewControllerExampleUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -217,6 +312,59 @@
 			productReference = F0D1888B24D4517700FEBA72 /* BTabViewControllerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		F0D188B224D49FAD00FEBA72 /* BTabViewControllerExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F0D188DA24D49FB200FEBA72 /* Build configuration list for PBXNativeTarget "BTabViewControllerExample" */;
+			buildPhases = (
+				F0D188AF24D49FAD00FEBA72 /* Sources */,
+				F0D188B024D49FAD00FEBA72 /* Frameworks */,
+				F0D188B124D49FAD00FEBA72 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BTabViewControllerExample;
+			productName = BTabViewControllerExample;
+			productReference = F0D188B324D49FAD00FEBA72 /* BTabViewControllerExample.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F0D188C724D49FB200FEBA72 /* BTabViewControllerExampleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F0D188DD24D49FB200FEBA72 /* Build configuration list for PBXNativeTarget "BTabViewControllerExampleTests" */;
+			buildPhases = (
+				F0D188C424D49FB200FEBA72 /* Sources */,
+				F0D188C524D49FB200FEBA72 /* Frameworks */,
+				F0D188C624D49FB200FEBA72 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F0D188CA24D49FB200FEBA72 /* PBXTargetDependency */,
+			);
+			name = BTabViewControllerExampleTests;
+			productName = BTabViewControllerExampleTests;
+			productReference = F0D188C824D49FB200FEBA72 /* BTabViewControllerExampleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		F0D188D224D49FB200FEBA72 /* BTabViewControllerExampleUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F0D188E024D49FB200FEBA72 /* Build configuration list for PBXNativeTarget "BTabViewControllerExampleUITests" */;
+			buildPhases = (
+				F0D188CF24D49FB200FEBA72 /* Sources */,
+				F0D188D024D49FB200FEBA72 /* Frameworks */,
+				F0D188D124D49FB200FEBA72 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F0D188D524D49FB200FEBA72 /* PBXTargetDependency */,
+			);
+			name = BTabViewControllerExampleUITests;
+			productName = BTabViewControllerExampleUITests;
+			productReference = F0D188D324D49FB200FEBA72 /* BTabViewControllerExampleUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -232,6 +380,17 @@
 					};
 					F0D1888A24D4517700FEBA72 = {
 						CreatedOnToolsVersion = 11.2.1;
+					};
+					F0D188B224D49FAD00FEBA72 = {
+						CreatedOnToolsVersion = 11.2.1;
+					};
+					F0D188C724D49FB200FEBA72 = {
+						CreatedOnToolsVersion = 11.2.1;
+						TestTargetID = F0D188B224D49FAD00FEBA72;
+					};
+					F0D188D224D49FB200FEBA72 = {
+						CreatedOnToolsVersion = 11.2.1;
+						TestTargetID = F0D188B224D49FAD00FEBA72;
 					};
 				};
 			};
@@ -250,6 +409,9 @@
 			targets = (
 				F0D1888124D4517700FEBA72 /* BTabViewController */,
 				F0D1888A24D4517700FEBA72 /* BTabViewControllerTests */,
+				F0D188B224D49FAD00FEBA72 /* BTabViewControllerExample */,
+				F0D188C724D49FB200FEBA72 /* BTabViewControllerExampleTests */,
+				F0D188D224D49FB200FEBA72 /* BTabViewControllerExampleUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -267,6 +429,30 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		F0D1888924D4517700FEBA72 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F0D188B124D49FAD00FEBA72 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F0D188C224D49FB200FEBA72 /* LaunchScreen.storyboard in Resources */,
+				F0D188BF24D49FB200FEBA72 /* Assets.xcassets in Resources */,
+				F0D188BD24D49FAD00FEBA72 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F0D188C624D49FB200FEBA72 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F0D188D124D49FB200FEBA72 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -341,6 +527,32 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F0D188AF24D49FAD00FEBA72 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F0D188BA24D49FAD00FEBA72 /* ViewController.swift in Sources */,
+				F0D188B624D49FAD00FEBA72 /* AppDelegate.swift in Sources */,
+				F0D188B824D49FAD00FEBA72 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F0D188C424D49FB200FEBA72 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F0D188CD24D49FB200FEBA72 /* BTabViewControllerExampleTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F0D188CF24D49FB200FEBA72 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F0D188D824D49FB200FEBA72 /* BTabViewControllerExampleUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -349,7 +561,36 @@
 			target = F0D1888124D4517700FEBA72 /* BTabViewController */;
 			targetProxy = F0D1888D24D4517700FEBA72 /* PBXContainerItemProxy */;
 		};
+		F0D188CA24D49FB200FEBA72 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F0D188B224D49FAD00FEBA72 /* BTabViewControllerExample */;
+			targetProxy = F0D188C924D49FB200FEBA72 /* PBXContainerItemProxy */;
+		};
+		F0D188D524D49FB200FEBA72 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F0D188B224D49FAD00FEBA72 /* BTabViewControllerExample */;
+			targetProxy = F0D188D424D49FB200FEBA72 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F0D188BB24D49FAD00FEBA72 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F0D188BC24D49FAD00FEBA72 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F0D188C024D49FB200FEBA72 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F0D188C124D49FB200FEBA72 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		F0D1889424D4517700FEBA72 /* Debug */ = {
@@ -564,6 +805,130 @@
 			};
 			name = Release;
 		};
+		F0D188DB24D49FB200FEBA72 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 35S52FBCGM;
+				INFOPLIST_FILE = BTabViewControllerExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Foo.BTabViewControllerExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F0D188DC24D49FB200FEBA72 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 35S52FBCGM;
+				INFOPLIST_FILE = BTabViewControllerExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Foo.BTabViewControllerExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		F0D188DE24D49FB200FEBA72 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 35S52FBCGM;
+				INFOPLIST_FILE = BTabViewControllerExampleTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Foo.BTabViewControllerExampleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BTabViewControllerExample.app/BTabViewControllerExample";
+			};
+			name = Debug;
+		};
+		F0D188DF24D49FB200FEBA72 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 35S52FBCGM;
+				INFOPLIST_FILE = BTabViewControllerExampleTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Foo.BTabViewControllerExampleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BTabViewControllerExample.app/BTabViewControllerExample";
+			};
+			name = Release;
+		};
+		F0D188E124D49FB200FEBA72 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 35S52FBCGM;
+				INFOPLIST_FILE = BTabViewControllerExampleUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Foo.BTabViewControllerExampleUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = BTabViewControllerExample;
+			};
+			name = Debug;
+		};
+		F0D188E224D49FB200FEBA72 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 35S52FBCGM;
+				INFOPLIST_FILE = BTabViewControllerExampleUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Foo.BTabViewControllerExampleUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = BTabViewControllerExample;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -590,6 +955,33 @@
 			buildConfigurations = (
 				F0D1889A24D4517700FEBA72 /* Debug */,
 				F0D1889B24D4517700FEBA72 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F0D188DA24D49FB200FEBA72 /* Build configuration list for PBXNativeTarget "BTabViewControllerExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F0D188DB24D49FB200FEBA72 /* Debug */,
+				F0D188DC24D49FB200FEBA72 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F0D188DD24D49FB200FEBA72 /* Build configuration list for PBXNativeTarget "BTabViewControllerExampleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F0D188DE24D49FB200FEBA72 /* Debug */,
+				F0D188DF24D49FB200FEBA72 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F0D188E024D49FB200FEBA72 /* Build configuration list for PBXNativeTarget "BTabViewControllerExampleUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F0D188E124D49FB200FEBA72 /* Debug */,
+				F0D188E224D49FB200FEBA72 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
