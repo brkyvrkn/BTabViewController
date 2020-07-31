@@ -1,0 +1,5 @@
+BTabViewController.xcodeproj
+BTabViewController.xcworkspace
+*.lock
+*.xcscheme
+Pods/Pods.xcodeproj/xcuserdata
