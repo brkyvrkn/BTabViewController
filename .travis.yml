@@ -1,12 +1,15 @@
 language: objeective-c
 xcode_workspace: BTabViewController.xcworkspace # path to your xcodeproj folder
 xcode_scheme: BTabViewControllerTests
+os: osx
 
 osx_image: xcode11.6
 env:
-  matrix:
-    - TEST_SDK=iphonesimulator13.6 OS=12.0 NAME='iPhone XR'
+  jobs:
+    - TEST_SDK=iphonesimulator13.6 OS=11.4 NAME='iPhone 7'
     - TEST_SDK=iphonesimulator13.6 OS=12.0 NAME='iPhone 8'
+    - TEST_SDK=iphonesimulator13.6 OS=13.0 NAME='iPhone 11'
+    - TEST_SDK=iphonesimulator13.6 OS=12.0 NAME='iPhone XR'
 
 script:
   - set -o pipefail && xcodebuild test -enableCodeCoverage YES -workspace BTabViewController.xcworkspace -scheme BTabViewControllerTests -sdk $TEST_SDK -destination "platform=iOS Simulator,OS=$OS,name=$NAME" ONLY_ACTIVE_ARCH=YES
