@@ -1,5 +1,5 @@
 *.lock
-Pods/Pods.xcodeproj/xcuserdata
-BTabViewController.xcodeproj/xcuserdata
-BTabViewController.xcworkspace/xcuserdata
+#Pods/Pods.xcodeproj/xcuserdata
+#BTabViewController.xcodeproj/xcuserdata
+#BTabViewController.xcworkspace/xcuserdata
 *.xcuserstate
