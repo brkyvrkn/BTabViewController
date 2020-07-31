@@ -1,13 +1,13 @@
 codecov:
   require_ci_to_pass: yes
-  token: "<some token here>"
+  token: "288ff82f-a5a2-470f-94d5-90afdfcd2889"
   max_report_age: off
   strict_yaml_branch: master  # only use the latest copy on master branch
 
 coverage:
   precision: 2
   round: down
-  range: "70...100"
+  range: "0...100"
 
 parsers:
   gcov:
