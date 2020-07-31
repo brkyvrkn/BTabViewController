@@ -17,6 +17,9 @@
 		F0D188A424D459A500FEBA72 /* BTabViewController+Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D188A024D459A500FEBA72 /* BTabViewController+Protocol.swift */; };
 		F0D188A624D47F1700FEBA72 /* Pods_BTabViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0D188A524D47F1700FEBA72 /* Pods_BTabViewController.framework */; };
 		F0D188A724D47F1700FEBA72 /* Pods_BTabViewController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F0D188A524D47F1700FEBA72 /* Pods_BTabViewController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F0D188AA24D486C500FEBA72 /* BTabViewController.podspec in Resources */ = {isa = PBXBuildFile; fileRef = F0D188A924D486C500FEBA72 /* BTabViewController.podspec */; };
+		F0D188AC24D486E900FEBA72 /* codecov.yml in Resources */ = {isa = PBXBuildFile; fileRef = F0D188AB24D486E900FEBA72 /* codecov.yml */; };
+		F0D188AE24D486F900FEBA72 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = F0D188AD24D486F900FEBA72 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +63,9 @@
 		F0D1889F24D459A500FEBA72 /* BTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTabViewController.swift; sourceTree = "<group>"; };
 		F0D188A024D459A500FEBA72 /* BTabViewController+Protocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BTabViewController+Protocol.swift"; sourceTree = "<group>"; };
 		F0D188A524D47F1700FEBA72 /* Pods_BTabViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_BTabViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F0D188A924D486C500FEBA72 /* BTabViewController.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = BTabViewController.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		F0D188AB24D486E900FEBA72 /* codecov.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = codecov.yml; sourceTree = "<group>"; };
+		F0D188AD24D486F900FEBA72 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		F306CE6778DBF6000E860C49 /* Pods-BTabViewController.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BTabViewController.release.xcconfig"; path = "Target Support Files/Pods-BTabViewController/Pods-BTabViewController.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -108,6 +114,9 @@
 		F0D1887824D4517700FEBA72 = {
 			isa = PBXGroup;
 			children = (
+				F0D188A924D486C500FEBA72 /* BTabViewController.podspec */,
+				F0D188AB24D486E900FEBA72 /* codecov.yml */,
+				F0D188AD24D486F900FEBA72 /* README.md */,
 				F0D1888424D4517700FEBA72 /* BTabViewController */,
 				F0D1888F24D4517700FEBA72 /* BTabViewControllerTests */,
 				F0D1888324D4517700FEBA72 /* Products */,
@@ -250,7 +259,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0D188AA24D486C500FEBA72 /* BTabViewController.podspec in Resources */,
 				F0D188A224D459A500FEBA72 /* BTabCollectionViewCell.xib in Resources */,
+				F0D188AE24D486F900FEBA72 /* README.md in Resources */,
+				F0D188AC24D486E900FEBA72 /* codecov.yml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
