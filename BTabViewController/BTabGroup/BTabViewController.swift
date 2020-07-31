@@ -216,7 +216,7 @@ open class BTabViewController: UIViewController {
     private func initCollectionView(_ collectionView: UICollectionView) {
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.register(UINib(nibName: BTabCollectionViewCell.nibName, bundle: .main), forCellWithReuseIdentifier: BTabCollectionViewCell.identifier)
+        collectionView.register(UINib(nibName: BTabCollectionViewCell.nibName, bundle: Bundle(for: type(of: self))), forCellWithReuseIdentifier: BTabCollectionViewCell.identifier)
         collectionView.allowsMultipleSelection = false
     }
 

@@ -15,9 +15,9 @@
 		F07519A324D4AA3D00A7E081 /* FourthTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07519A224D4AA3D00A7E081 /* FourthTabViewController.swift */; };
 		F07519A524D4AA4600A7E081 /* FifthTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07519A424D4AA4600A7E081 /* FifthTabViewController.swift */; };
 		F07519A724D4AA5000A7E081 /* SixthTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07519A624D4AA5000A7E081 /* SixthTabViewController.swift */; };
-		F07519A924D4B68400A7E081 /* BTabCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0D1889E24D459A500FEBA72 /* BTabCollectionViewCell.xib */; };
-		F07519AA24D4B68900A7E081 /* BTabCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D1889D24D459A500FEBA72 /* BTabCollectionViewCell.swift */; };
-		F07519AB24D4B69A00A7E081 /* BTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D1889F24D459A500FEBA72 /* BTabViewController.swift */; };
+		F07519AC24D4C11300A7E081 /* BTabCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D1889D24D459A500FEBA72 /* BTabCollectionViewCell.swift */; };
+		F07519AD24D4C11600A7E081 /* BTabCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0D1889E24D459A500FEBA72 /* BTabCollectionViewCell.xib */; };
+		F07519AE24D4C11900A7E081 /* BTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D1889F24D459A500FEBA72 /* BTabViewController.swift */; };
 		F0D1888C24D4517700FEBA72 /* BTabViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0D1888224D4517700FEBA72 /* BTabViewController.framework */; };
 		F0D1889124D4517700FEBA72 /* BTabViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D1889024D4517700FEBA72 /* BTabViewControllerTests.swift */; };
 		F0D1889324D4517700FEBA72 /* BTabViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = F0D1888524D4517700FEBA72 /* BTabViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -523,7 +523,7 @@
 				F0D188F024D4A41700FEBA72 /* Tabs.storyboard in Resources */,
 				F0D188C224D49FB200FEBA72 /* LaunchScreen.storyboard in Resources */,
 				F0D188BF24D49FB200FEBA72 /* Assets.xcassets in Resources */,
-				F07519A924D4B68400A7E081 /* BTabCollectionViewCell.xib in Resources */,
+				F07519AD24D4C11600A7E081 /* BTabCollectionViewCell.xib in Resources */,
 				F0D188BD24D49FAD00FEBA72 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -613,11 +613,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F07519AB24D4B69A00A7E081 /* BTabViewController.swift in Sources */,
+				F07519AE24D4C11900A7E081 /* BTabViewController.swift in Sources */,
 				F075199B24D4A80400A7E081 /* ExampleStoryboards.swift in Sources */,
 				F0D188EA24D4A3E200FEBA72 /* SecondViewController.swift in Sources */,
 				F07519A524D4AA4600A7E081 /* FifthTabViewController.swift in Sources */,
-				F07519AA24D4B68900A7E081 /* BTabCollectionViewCell.swift in Sources */,
+				F07519AC24D4C11300A7E081 /* BTabCollectionViewCell.swift in Sources */,
 				F0D188EC24D4A3F400FEBA72 /* FirstContainerViewController.swift in Sources */,
 				F075199F24D4AA2300A7E081 /* SecondTabViewController.swift in Sources */,
 				F0D188E824D4A3BD00FEBA72 /* FirstViewController.swift in Sources */,
