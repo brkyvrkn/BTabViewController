@@ -1,0 +1,6 @@
+framework module Pods_BTabViewController_BTabViewControllerTests {
+  umbrella header "Pods-BTabViewController-BTabViewControllerTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
