@@ -59,28 +59,28 @@ class BTabViewControllerTests: XCTestCase {
 
     func testTabListModelInit() throws {
         let vc = UIViewController()
-        let listItem = BTabListModel(id: "1", target: vc)
+        let listItem = BTabModel(id: "1", target: vc)
         XCTAssert(listItem.id == "1")
         XCTAssertEqual(listItem.target, vc)
     }
 
     func testTabListModelInit2() throws {
         let vc = UIViewController()
-        let listItem = BTabListModel(id: "1", target: vc)
+        let listItem = BTabModel(id: "1", target: vc)
         XCTAssert(listItem.id == "1")
         XCTAssertNotEqual(listItem.target, UIViewController())
     }
 
     func testTabListModelInit3() throws {
         let vc = UIViewController()
-        let listItem = BTabListModel(id: "2", target: vc)
+        let listItem = BTabModel(id: "2", target: vc)
         XCTAssertEqual(listItem.id, "2")
         XCTAssertNotEqual(listItem.target, UIViewController())
     }
 
     func testTabListModelInit4() throws {
         let vc = UIViewController()
-        let listItem = BTabListModel(id: "2", target: vc)
+        let listItem = BTabModel(id: "2", target: vc)
         XCTAssertNotEqual(listItem.id, "1")
         XCTAssertEqual(listItem.target, vc)
     }
@@ -106,39 +106,35 @@ class BTabViewControllerTests: XCTestCase {
         XCTAssertEqual(vc.containers.count, 0)
         XCTAssertEqual(vc.tabList.count, 0)
         XCTAssertEqual(vc.tabItems.count, 0)
-        XCTAssertNil(vc.selectedTab)
+        XCTAssertNil(vc.selectedTabItem)
     }
 
     func testTabCollectionInit() throws {
-        let cell = BTabCollectionViewCell()
-        XCTAssertNil(cell.nameLabel)
+        let cell = BTabCell()
+        XCTAssertNotNil(cell.nameLabel)
     }
 
     func testTabCollectionInit2() throws {
-        let cell = BTabCollectionViewCell()
+        let cell = BTabCell()
         XCTAssertNil(cell.model)
     }
 
     func testTabCollectionConfiguration() throws {
-        let cell = BTabCollectionViewCell()
+        let cell = BTabCell()
         let item = BTabItemModel(order: 0, title: "1")
         cell.configureCell(item)
         XCTAssertNotNil(cell.model)
     }
 
     func testTabCollectionAwake() throws {
-        let cell = BTabCollectionViewCell()
+        let cell = BTabCell()
         cell.awakeFromNib()
         XCTAssertNil(cell.model)
-        XCTAssertNil(cell.nameLabel)
+        XCTAssertNotNil(cell.nameLabel)
     }
 
     func testTabCollectionIdentifier() throws {
-        XCTAssertEqual("BTabCollectionViewCell", BTabCollectionViewCell.identifier)
-    }
-
-    func testTabCollectionNibName() throws {
-        XCTAssertEqual("BTabCollectionViewCell", BTabCollectionViewCell.nibName)
+        XCTAssertEqual("BTabCell", BTabCell.identifier)
     }
 
     func testPerformanceExample() {

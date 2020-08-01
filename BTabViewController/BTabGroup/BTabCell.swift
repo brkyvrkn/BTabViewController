@@ -13,7 +13,7 @@ open class BTabCell: UICollectionViewCell {
     // MARK: - Properties
     internal var nameLabel: UILabel?
     // Model
-    private var model: BTabItemModel?
+    open var model: BTabItemModel?
     // Definitions
     static let identifier = "BTabCell"
 
