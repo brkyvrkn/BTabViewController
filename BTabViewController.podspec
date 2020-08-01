@@ -107,7 +107,7 @@ Pod::Spec.new do |spec|
   #
 
   # spec.resource  = "icon.png"
-  spec.resources = "BTabViewController/BTabGroup/**/*.{xib}"
+  # spec.resources = "BTabViewController/BTabGroup/**/*.{xib}"
 
   # spec.preserve_paths = "FilesToSave", "MoreFilesToSave"
 
