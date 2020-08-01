@@ -17,13 +17,13 @@ class FirstContainerViewController: BTabViewController {
     }
 
     // MARK: - BTab Stuff
-    override func setView(tabList: [BTabListModel], tabItems: [BTabItemModel]) {
+    override func setView(tabList: [BTabModel], tabItems: [BTabItemModel]) {
         let firstTabVC = ExampleStoryboards.instantiateViewController(in: .tabs, classOf: FirstTabViewController.self)!
         let secondTabVC = ExampleStoryboards.instantiateViewController(in: .tabs, classOf: SecondTabViewController.self)!
         let thirdTabVC = ExampleStoryboards.instantiateViewController(in: .tabs, classOf: ThirdTabViewController.self)!
-        let firstList = BTabListModel(id: "1", target: firstTabVC)
-        let secondList = BTabListModel(id: "2", target: secondTabVC)
-        let thirdList = BTabListModel(id: "3", target: thirdTabVC)
+        let firstList = BTabModel(id: "1", target: firstTabVC)
+        let secondList = BTabModel(id: "2", target: secondTabVC)
+        let thirdList = BTabModel(id: "3", target: thirdTabVC)
         let lists = [firstList, secondList, thirdList]
 
         var firstTab = BTabItemModel(order: 0, title: "First")

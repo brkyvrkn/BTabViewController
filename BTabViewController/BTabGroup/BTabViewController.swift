@@ -8,109 +8,20 @@
 
 import UIKit
 
-public protocol BTabViewControllerProtocol: class {
-    /// Trigger just tapping on the tab no matter the previous state
-    /// - Parameters:
-    ///   - target: Which container class did triggerred
-    ///   - item: Selected tab item model
-    ///   - index: Selected index order
-    func listTab(_ target: UIViewController, didSelect item: BTabItemModel, index: Int)
-    /// Called just changing operation did
-    /// - Parameters:
-    ///   - target: Container class just activated
-    ///   - to: Newly changed tab model
-    func listTab(_ target: UIViewController, tabSwitched to: BTabItemModel)
-    func listTab(provideCell: BTabCellProvider) -> UICollectionViewCell
-}
-
-/// Order should begin with zero
-public struct BTabItemModel: Equatable {
-    // Attributes
-    public var order: Int
-    public var title: String
-    public var titleFont: UIFont = .systemFont(ofSize: 12)
-    public var titleTextColor: UIColor = .init(red: 64/255.0, green: 64/255.0, blue: 64/255.0, alpha: 1.0)
-    public var highlightFont: UIFont = .systemFont(ofSize: 12, weight: .bold)
-    public var highlightTextColor: UIColor = .init(red: 64/255.0, green: 64/255.0, blue: 64/255.0, alpha: 1.0)
-    public var backgroundColor: UIColor = .clear
-    public var textAlignment: NSTextAlignment = .left
-    // Private protection level attributes
-    private var isActive: Bool = false
-
-    /// Tab item initializer, required just 2 variables
-    /// - Parameters:
-    ///   - order: Left-most index position of given tab
-    ///   - title: Text
-    public init(order: Int, title: String) {
-        self.order = order
-        self.title = title.trimmingCharacters(in: .whitespacesAndNewlines).capitalized
-    }
-
-    mutating func setActive(_ isActive: Bool) {
-        self.isActive = isActive
-    }
-
-    public func getActive() -> Bool {
-        return self.isActive
-    }
-
-    /// Equatable overloader
-    /// - Parameters:
-    ///   - lhs: Left hand side
-    ///   - rhs: Right hand side
-    /// - Returns: True if their orders are equal
-    public static func ==(lhs: BTabItemModel, rhs: BTabItemModel) -> Bool {
-        return lhs.order == rhs.order
-    }
-}
-
-/// To define child view controllers and their id
-public struct BTabListModel {
-    // Attributes
-    public var id: String
-    public var target: UIViewController
-
-    /// Initializer
-    /// - Parameters:
-    ///   - id: Identifier of target
-    ///   - target: View controller target for child
-    public init(id: String, target: UIViewController) {
-        self.id = id
-        self.target = target
-    }
-}
-
-public struct BTabCellProvider {
-    public var nib: UINib?
-    public var identifier: String
-    public var _class: AnyClass?
-    public var forSupplementaryViewOfKind: String?
-
-    init(reuseIdentifier: String, _class: AnyClass?) {
-        self.identifier = reuseIdentifier
-        self._class = _class
-    }
-
-    init(reuseIdentifier: String, nib: UINib?) {
-        self.identifier = reuseIdentifier
-        self.nib = nib
-    }
-}
-
 open class BTabViewController: UIViewController {
 
     // MARK: - Properties
     // Models
     internal var tabItems: [BTabItemModel] = []
-    internal var tabList: [BTabListModel] = []
-    internal var selectedTab: BTabItemModel? {
+    internal var tabList: [BTabModel] = []
+    internal var selectedTabItem: BTabItemModel? {
         didSet {
-            self.activateTab(order: self.selectedTab?.order ?? -1)
+            self.activateTab(order: self.selectedTabItem?.order ?? -1)
             if tabCollectionView != nil {
                 DispatchQueue.main.async {
                     self.tabCollectionView?.performBatchUpdates({
 //                    print("Reload tabs")
-                        var idxs = [IndexPath(item: self.selectedTab?.order ?? 0, section: 0)]
+                        var idxs = [IndexPath(item: self.selectedTabItem?.order ?? 0, section: 0)]
                         if let old = oldValue {
                             idxs.append(IndexPath(item: old.order, section: 0))
                         }
@@ -183,22 +94,22 @@ open class BTabViewController: UIViewController {
             attachViews(base: horizontalScrollView!)
             horizontalScrollView?.contentSize = .init(width: CGFloat(containers.count) * view.frame.width,
                                                       height: horizontalScrollView!.frame.height)
-            if selectedTab == nil, tabItems.count > 0 {
-                selectedTab = tabItems[0]
+            if selectedTabItem == nil, tabItems.count > 0 {
+                selectedTabItem = tabItems[0]
                 if tabCollectionView != nil, tabCollectionView?.cellForItem(at: IndexPath(item: 0, section: 0)) != nil {
                     tabCollectionView?.selectItem(at: IndexPath(item: 0, section: 0), animated: false, scrollPosition: .left)
                 }
             }
         }
-        if indicatorView != nil, selectedTab != nil {
-            attachIndicator(instance: indicatorView!, forView: tabCollectionView!, selected: selectedTab!, forceUpdate: false)
+        if indicatorView != nil, selectedTabItem != nil {
+            attachIndicator(instance: indicatorView!, forView: tabCollectionView!, selected: selectedTabItem!, forceUpdate: false)
         }
     }
 
     override open func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
-        if horizontalScrollView != nil, selectedTab != nil {
-            scrollTab(horizontalScrollView!, base: view, toTab: selectedTab!)
+        if horizontalScrollView != nil, selectedTabItem != nil {
+            scrollTab(horizontalScrollView!, base: view, toTab: selectedTabItem!)
             DispatchQueue.main.async {
                 self.tabCollectionView?.performBatchUpdates({
                     self.tabCollectionView?.reloadSections(IndexSet(integersIn: 0..<(self.tabCollectionView?.numberOfSections ?? 1)))
@@ -207,10 +118,10 @@ open class BTabViewController: UIViewController {
         }
 
         guard indicatorView != nil, tabCollectionView != nil else { return }
-        attachIndicator(instance: indicatorView!, forView: tabCollectionView!, selected: selectedTab!, forceUpdate: true)
+        attachIndicator(instance: indicatorView!, forView: tabCollectionView!, selected: selectedTabItem!, forceUpdate: true)
     }
 
-    open func setView(tabList: [BTabListModel], tabItems: [BTabItemModel]) {
+    open func setView(tabList: [BTabModel], tabItems: [BTabItemModel]) {
 //        print(String(format: "%@\n%@\n%@", "BTabViewController:::::>\(#function)", tabList, tabItems))
         self.tabItems = tabItems
         self.tabList = tabList
@@ -540,10 +451,10 @@ extension BTabViewController: UICollectionViewDelegate, UICollectionViewDataSour
         guard horizontalScrollView != nil else { return }
         self.listTab(target, didSelect: item, index: indexPath.row)
         scrollTab(horizontalScrollView!, base: view, toTab: item)
-        if let s = selectedTab, s != item {
-            selectedTab = item
+        if let s = selectedTabItem, s != item {
+            selectedTabItem = item
             if indicatorView != nil {
-                attachIndicator(instance: indicatorView!, forView: collectionView, selected: selectedTab!, forceUpdate: true)
+                attachIndicator(instance: indicatorView!, forView: collectionView, selected: selectedTabItem!, forceUpdate: true)
             }
             self.listTab(target, tabSwitched: item)
         }
@@ -595,8 +506,8 @@ extension BTabViewController: UIScrollViewDelegate {
                     }
                 }
             }
-            if selectedTab != nil, tabCollectionView != nil, indicatorView != nil, selectedTab?.order != pageIdx {
-                selectedTab = tabItems[pageIdx]
+            if selectedTabItem != nil, tabCollectionView != nil, indicatorView != nil, selectedTabItem?.order != pageIdx {
+                selectedTabItem = tabItems[pageIdx]
             }
         }
     }
@@ -604,11 +515,11 @@ extension BTabViewController: UIScrollViewDelegate {
     open func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         if scrollView == horizontalScrollView {
             let pageIdx = Int(floor(scrollView.contentOffset.x / view.bounds.width))
-            if indicatorView != nil, tabCollectionView != nil, selectedTab != nil {
-                if selectedTab?.order != pageIdx, pageIdx > 0, pageIdx < tabItems.count {
-                    selectedTab = tabItems[pageIdx]
+            if indicatorView != nil, tabCollectionView != nil, selectedTabItem != nil {
+                if selectedTabItem?.order != pageIdx, pageIdx > 0, pageIdx < tabItems.count {
+                    selectedTabItem = tabItems[pageIdx]
                 }
-                attachIndicator(instance: indicatorView!, forView: tabCollectionView!, selected: selectedTab!, forceUpdate: true)
+                attachIndicator(instance: indicatorView!, forView: tabCollectionView!, selected: selectedTabItem!, forceUpdate: true)
             }
         }
     }
