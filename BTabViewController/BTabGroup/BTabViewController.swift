@@ -20,6 +20,7 @@ public protocol BTabViewControllerProtocol: class {
     ///   - target: Container class just activated
     ///   - to: Newly changed tab model
     func listTab(_ target: UIViewController, tabSwitched to: BTabItemModel)
+    func listTab(provideCell: BTabCellProvider) -> UICollectionViewCell
 }
 
 /// Order should begin with zero
@@ -79,6 +80,23 @@ public struct BTabListModel {
     }
 }
 
+public struct BTabCellProvider {
+    public var nib: UINib?
+    public var identifier: String
+    public var _class: AnyClass?
+    public var forSupplementaryViewOfKind: String?
+
+    init(reuseIdentifier: String, _class: AnyClass?) {
+        self.identifier = reuseIdentifier
+        self._class = _class
+    }
+
+    init(reuseIdentifier: String, nib: UINib?) {
+        self.identifier = reuseIdentifier
+        self.nib = nib
+    }
+}
+
 open class BTabViewController: UIViewController {
 
     // MARK: - Properties
@@ -107,6 +125,7 @@ open class BTabViewController: UIViewController {
     open var tabLayout: UICollectionViewFlowLayout?
     open var horizontalScrollView: UIScrollView?
     open var containers: [UIView] = []
+    open var cellProvider: [BTabCellProvider] = []
     // Tabs
     open var tabsGap: CGFloat = 8
     open var tabInset: CGFloat = 12
@@ -128,6 +147,7 @@ open class BTabViewController: UIViewController {
     override open func loadView() {
         super.loadView()
 //        print("BTabViewController:::::>\(#function)")
+        self.cellProvider = [BTabCellProvider(reuseIdentifier: "BTabCell", _class: BTabCell.self)]
         setView(tabList: self.tabList, tabItems: self.tabItems)
     }
 
@@ -216,8 +236,26 @@ open class BTabViewController: UIViewController {
     private func initCollectionView(_ collectionView: UICollectionView) {
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.register(UINib(nibName: BTabCollectionViewCell.nibName, bundle: Bundle(for: type(of: self))), forCellWithReuseIdentifier: BTabCollectionViewCell.identifier)
         collectionView.allowsMultipleSelection = false
+        if cellProvider.count > 0 {
+            for cp in cellProvider {
+                if cp.nib != nil {
+                    if cp.forSupplementaryViewOfKind != nil {
+                        collectionView.register(cp.nib!, forSupplementaryViewOfKind: cp.forSupplementaryViewOfKind!, withReuseIdentifier: cp.identifier)
+                    } else {
+                        collectionView.register(cp.nib!, forCellWithReuseIdentifier: cp.identifier)
+                    }
+                } else if cp._class != nil {
+                    if cp.forSupplementaryViewOfKind != nil {
+                        collectionView.register(cp._class!, forSupplementaryViewOfKind: cp.forSupplementaryViewOfKind!, withReuseIdentifier: cp.identifier)
+                    } else {
+                        collectionView.register(cp._class!, forCellWithReuseIdentifier: cp.identifier)
+                    }
+                }
+            }
+        } else {
+            collectionView.register(BTabCell.self, forCellWithReuseIdentifier: BTabCell.identifier)
+        }
     }
 
     /// Determine the collection cell size for all tabs
@@ -479,10 +517,20 @@ extension BTabViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
 
     open func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BTabCollectionViewCell.identifier, for: indexPath) as! BTabCollectionViewCell
-        let item = tabItems[indexPath.row]
-        cell.configureCell(item)
-        return cell
+        if let provider = cellProvider.first {
+            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: provider.identifier, for: indexPath) as? BTabCell {
+                let item = tabItems[indexPath.row]
+                cell.configureCell(item)
+                return cell
+            }
+        } else {
+            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BTabCell.identifier, for: indexPath) as? BTabCell {
+                let item = tabItems[indexPath.row]
+                cell.configureCell(item)
+                return cell
+            }
+        }
+        return UICollectionViewCell()
     }
 
     open func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
