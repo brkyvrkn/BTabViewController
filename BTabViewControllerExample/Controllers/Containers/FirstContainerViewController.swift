@@ -27,15 +27,15 @@ class FirstContainerViewController: BTabViewController {
         let lists = [firstList, secondList, thirdList]
 
         var firstTab = BTabItemModel(order: 0, title: "First")
-//        firstTab.backgroundColor = .blue
+        firstTab.backgroundColor = .blue
         firstTab.highlightFont = .systemFont(ofSize: 16, weight: .bold)
         firstTab.textAlignment = .center
         var secondTab = BTabItemModel(order: 1, title: "Second")
-//        secondTab.backgroundColor = .green
+        secondTab.backgroundColor = .green
         secondTab.highlightFont = .systemFont(ofSize: 16, weight: .bold)
         secondTab.textAlignment = .center
         var thirdTab = BTabItemModel(order: 2, title: "Third")
-//        thirdTab.backgroundColor = .yellow
+        thirdTab.backgroundColor = .yellow
         thirdTab.highlightFont = .systemFont(ofSize: 16, weight: .bold)
         thirdTab.textAlignment = .center
         let tabs: [BTabItemModel] = [firstTab, secondTab, thirdTab]

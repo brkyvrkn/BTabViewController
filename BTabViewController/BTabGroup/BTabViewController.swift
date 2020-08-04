@@ -19,14 +19,18 @@ open class BTabViewController: UIViewController {
             self.activateTab(order: self.selectedTabItem?.order ?? -1)
             if tabCollectionView != nil {
                 DispatchQueue.main.async {
-                    self.tabCollectionView?.performBatchUpdates({
-//                    print("Reload tabs")
-                        var idxs = [IndexPath(item: self.selectedTabItem?.order ?? 0, section: 0)]
-                        if let old = oldValue {
-                            idxs.append(IndexPath(item: old.order, section: 0))
-                        }
-                        self.tabCollectionView?.reloadItems(at: idxs)
-                    }, completion: nil)
+                    if self.isAnimated {
+                        self.tabCollectionView?.performBatchUpdates({
+//                            print("Reload tabs")
+                            var idxs = [IndexPath(item: self.selectedTabItem?.order ?? 0, section: 0)]
+                            if let old = oldValue {
+                                idxs.append(IndexPath(item: old.order, section: 0))
+                            }
+                            self.tabCollectionView?.reloadItems(at: idxs)
+                        }, completion: nil)
+                    } else {
+                        self.tabCollectionView?.reloadData()
+                    }
                 }
             }
         }
@@ -48,6 +52,7 @@ open class BTabViewController: UIViewController {
     open var indicatorIsRounded: Bool = true
     open var isIndicatorVisible: Bool = true
     open var isIndicatorSlide: Bool = false
+    open var isAnimated: Bool = true
     // Indicator
     open var indicatorView: UIView?
     open var indicatorHeight: CGFloat = 4
@@ -98,6 +103,7 @@ open class BTabViewController: UIViewController {
                 selectedTabItem = tabItems[0]
                 if tabCollectionView != nil, tabCollectionView?.cellForItem(at: IndexPath(item: 0, section: 0)) != nil {
                     tabCollectionView?.selectItem(at: IndexPath(item: 0, section: 0), animated: false, scrollPosition: .left)
+                    self.tabCollectionView?.reloadData()
                 }
             }
         }
@@ -196,6 +202,7 @@ open class BTabViewController: UIViewController {
         guard base.tag != 69 else { return }
         base.tag = 69
         view.addSubview(base)
+        base.backgroundColor = .clear
         base.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
@@ -346,6 +353,7 @@ open class BTabViewController: UIViewController {
             let container = self.containers[tIdx]
 
             container.translatesAutoresizingMaskIntoConstraints = false
+            container.clipsToBounds = true
             var leadingView: UIView = base
             var trailingView: UIView = base
             if tIdx - 1 >= 0 {
@@ -404,14 +412,22 @@ open class BTabViewController: UIViewController {
     ///   - toTab: Corresponding tab to determine the offset
     private func scrollTab(_ scrollView: UIScrollView, base: UIView, toTab: BTabItemModel) {
         DispatchQueue.main.async {
-            UIView.animate(withDuration: 0.4, delay: 0.0, options: .curveEaseInOut, animations: {
+            if self.isAnimated {
+                UIView.animate(withDuration: 0.4, delay: 0.0, options: .curveEaseInOut, animations: {
+                    let origin_X = CGFloat(toTab.order) * base.frame.width
+                    let origin_Y = CGFloat(0)
+                    let newOrigin = CGPoint(x: origin_X, y: origin_Y)
+                    scrollView.setContentOffset(newOrigin, animated: false)
+                }, completion: { _ in
+                    scrollView.layoutIfNeeded()
+                })
+            } else {
                 let origin_X = CGFloat(toTab.order) * base.frame.width
                 let origin_Y = CGFloat(0)
                 let newOrigin = CGPoint(x: origin_X, y: origin_Y)
                 scrollView.setContentOffset(newOrigin, animated: false)
-            }, completion: { _ in
                 scrollView.layoutIfNeeded()
-            })
+            }
         }
     }
 }

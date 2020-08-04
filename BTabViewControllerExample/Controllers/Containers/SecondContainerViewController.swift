@@ -43,12 +43,13 @@ class SecondContainerViewController: BTabViewController {
         self.isIndicatorVisible = true
         self.indicatorHeight = 4
         self.indicatorWidth = 16
+        self.indicatorIsRounded = true
         self.tabWidth = 40
 
         super.setView(tabList: lists, tabItems: tabs)
     }
 
     override func listTab(_ target: UIViewController, tabSwitched toItem: BTabItemModel) {
-        super.listTab(target, tabSwitched: to)
+        super.listTab(target, tabSwitched: toItem)
     }
 }
