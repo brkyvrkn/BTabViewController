@@ -16,6 +16,8 @@ open class BTabCell: UICollectionViewCell {
     open var model: BTabItemModel?
     // Definitions
     static let identifier = "BTabCell"
+    // Flag
+    private let isAnimated = true
 
     override open func draw(_ rect: CGRect) {
         super.draw(rect)
@@ -27,6 +29,7 @@ open class BTabCell: UICollectionViewCell {
 //        print("BTabCell:::::> init frame")
         if nameLabel == nil {
             nameLabel = UILabel(frame: .zero)
+            contentView.backgroundColor = .white
             contentView.addSubview(nameLabel!)
         }
     }
@@ -36,6 +39,7 @@ open class BTabCell: UICollectionViewCell {
 //        print("BTabCell:::::> init coder")
         if nameLabel == nil {
             nameLabel = UILabel(frame: .zero)
+            contentView.backgroundColor = .white
             contentView.addSubview(nameLabel!)
         }
     }
@@ -74,12 +78,17 @@ open class BTabCell: UICollectionViewCell {
 
     open func configureCell(_ model: BTabItemModel) {
         self.model = model
-        UIView.animate(withDuration: 0.4, animations: {
+        if isAnimated {
+            UIView.animate(withDuration: 0.4, animations: {
+                self.setTheme(selection: model.getActive())
+            }, completion: nil)
+        } else {
             self.setTheme(selection: model.getActive())
-        }, completion: nil)
+        }
         guard nameLabel != nil else { return }
         self.nameLabel!.textAlignment = model.textAlignment
         self.nameLabel!.text = model.title
+        self.nameLabel!.backgroundColor = model.backgroundColor
 //        print("Configure Cell order:\(model.order)")
     }
 
