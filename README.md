@@ -4,6 +4,8 @@
 [![Version](https://img.shields.io/cocoapods/v/BTabViewController.svg?style=flat)](https://cocoapods.org/pods/BTabViewController)
 [![License](https://img.shields.io/cocoapods/l/BTabViewController.svg?style=flat)](https://cocoapods.org/pods/BTabViewController)
 [![Platform](https://img.shields.io/cocoapods/p/BTabViewController.svg?style=flat)](https://cocoapods.org/pods/BTabViewController)
+[![Swift Version](https://img.shields.io/badge/Swift-4%20&%205-41ab5d.svg)](https://developer.apple.com/swift)
+[![Objective-C compatible](https://img.shields.io/badge/Objective--C-compatible-f0a030.svg?style=flat)](https://github.com/Carthage/Carthage)
 
 ## Example
 

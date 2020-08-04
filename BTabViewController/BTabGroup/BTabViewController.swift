@@ -58,7 +58,7 @@ open class BTabViewController: UIViewController {
     override open func loadView() {
         super.loadView()
 //        print("BTabViewController:::::>\(#function)")
-        self.cellProvider = [BTabCellProvider(reuseIdentifier: "BTabCell", _class: BTabCell.self)]
+        self.cellProvider = [BTabCellProvider(reuseIdentifier: "BTabCell", class_: BTabCell.self)]
         setView(tabList: self.tabList, tabItems: self.tabItems)
     }
 
@@ -94,7 +94,7 @@ open class BTabViewController: UIViewController {
             attachViews(base: horizontalScrollView!)
             horizontalScrollView?.contentSize = .init(width: CGFloat(containers.count) * view.frame.width,
                                                       height: horizontalScrollView!.frame.height)
-            if selectedTabItem == nil, tabItems.count > 0 {
+            if selectedTabItem == nil, !tabItems.isEmpty {
                 selectedTabItem = tabItems[0]
                 if tabCollectionView != nil, tabCollectionView?.cellForItem(at: IndexPath(item: 0, section: 0)) != nil {
                     tabCollectionView?.selectItem(at: IndexPath(item: 0, section: 0), animated: false, scrollPosition: .left)
@@ -134,7 +134,7 @@ open class BTabViewController: UIViewController {
 //        print(String(format: "%@\ntarget=%@\tselected=%@\tindex=%d", "BTabViewController:::::>\(#function)", target, item.title, index))
     }
 
-    open func listTab(_ target: UIViewController, tabSwitched to: BTabItemModel) {
+    open func listTab(_ target: UIViewController, tabSwitched toItem: BTabItemModel) {
 //        print(String(format: "%@\ntarget=%@\tswitched to=%@", "BTabViewController:::::>\(#function)", target, to.title))
     }
 
@@ -148,19 +148,19 @@ open class BTabViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.allowsMultipleSelection = false
-        if cellProvider.count > 0 {
-            for cp in cellProvider {
-                if cp.nib != nil {
-                    if cp.forSupplementaryViewOfKind != nil {
-                        collectionView.register(cp.nib!, forSupplementaryViewOfKind: cp.forSupplementaryViewOfKind!, withReuseIdentifier: cp.identifier)
+        if !cellProvider.isEmpty {
+            for cProvider in cellProvider {
+                if cProvider.nib != nil {
+                    if cProvider.forSupplementaryViewOfKind != nil {
+                        collectionView.register(cProvider.nib!, forSupplementaryViewOfKind: cProvider.forSupplementaryViewOfKind!, withReuseIdentifier: cProvider.identifier)
                     } else {
-                        collectionView.register(cp.nib!, forCellWithReuseIdentifier: cp.identifier)
+                        collectionView.register(cProvider.nib!, forCellWithReuseIdentifier: cProvider.identifier)
                     }
-                } else if cp._class != nil {
-                    if cp.forSupplementaryViewOfKind != nil {
-                        collectionView.register(cp._class!, forSupplementaryViewOfKind: cp.forSupplementaryViewOfKind!, withReuseIdentifier: cp.identifier)
+                } else if cProvider.class_ != nil {
+                    if cProvider.forSupplementaryViewOfKind != nil {
+                        collectionView.register(cProvider.class_!, forSupplementaryViewOfKind: cProvider.forSupplementaryViewOfKind!, withReuseIdentifier: cProvider.identifier)
                     } else {
-                        collectionView.register(cp._class!, forCellWithReuseIdentifier: cp.identifier)
+                        collectionView.register(cProvider.class_!, forCellWithReuseIdentifier: cProvider.identifier)
                     }
                 }
             }
@@ -217,11 +217,11 @@ open class BTabViewController: UIViewController {
     /// - Parameter order: Order of the tab with left-most direction
     open func activateTab(order: Int) {
         if order < tabItems.count {
-            for i in 0..<tabItems.count {
-                if i == order {
-                    tabItems[i].setActive(true)
+            for idx in 0..<tabItems.count {
+                if idx == order {
+                    tabItems[idx].setActive(true)
                 } else {
-                    tabItems[i].setActive(false)
+                    tabItems[idx].setActive(false)
                 }
             }
         }
@@ -341,18 +341,18 @@ open class BTabViewController: UIViewController {
         containers.sort(by: { (prev, next) in
             prev.tag < next.tag
         })
-        for t in 0..<self.tabList.count {
-            _ = self.tabList[t]
-            let container = self.containers[t]
+        for tIdx in 0..<self.tabList.count {
+            _ = self.tabList[tIdx]
+            let container = self.containers[tIdx]
 
             container.translatesAutoresizingMaskIntoConstraints = false
             var leadingView: UIView = base
             var trailingView: UIView = base
-            if t - 1 >= 0 {
-                leadingView = self.containers[t - 1]
+            if tIdx - 1 >= 0 {
+                leadingView = self.containers[tIdx - 1]
             }
-            if t + 1 < self.tabList.count {
-                trailingView = self.containers[t + 1]
+            if tIdx + 1 < self.tabList.count {
+                trailingView = self.containers[tIdx + 1]
             }
             NSLayoutConstraint.activate([
                 .init(item: container, attribute: .leading, relatedBy: .equal, toItem: leadingView, attribute: leadingView is UIScrollView ? .leading : .trailing, multiplier: 1, constant: 0),
@@ -376,7 +376,7 @@ open class BTabViewController: UIViewController {
             container.topAnchor.constraint(equalTo: base.topAnchor, constant: 0),
             container.bottomAnchor.constraint(equalTo: base.bottomAnchor, constant: 0)
         ]
-        if extraConstraints.count > 0 {
+        if !extraConstraints.isEmpty {
             containerConstraints.append(contentsOf: extraConstraints)
         }
         NSLayoutConstraint.activate(containerConstraints)
@@ -451,7 +451,7 @@ extension BTabViewController: UICollectionViewDelegate, UICollectionViewDataSour
         guard horizontalScrollView != nil else { return }
         self.listTab(target, didSelect: item, index: indexPath.row)
         scrollTab(horizontalScrollView!, base: view, toTab: item)
-        if let s = selectedTabItem, s != item {
+        if let sTab = selectedTabItem, sTab != item {
             selectedTabItem = item
             if indicatorView != nil {
                 attachIndicator(instance: indicatorView!, forView: collectionView, selected: selectedTabItem!, forceUpdate: true)
@@ -492,7 +492,7 @@ extension BTabViewController: UIScrollViewDelegate {
 //                print("scroll multiplier: \(viewScrollMultiplier), indicator offset: \(indicatorOffset)")
             if isIndicatorVisible, indicatorView != nil, isIndicatorSlide {
                 for constr in view.constraints {
-                    if let v = constr.firstItem as? UIView, v.tag == 89, constr.firstAttribute == .leading {
+                    if let consV = constr.firstItem as? UIView, consV.tag == 89, constr.firstAttribute == .leading {
                         var newLeading = indicatorLeading
                         let veloX = scrollView.panGestureRecognizer.velocity(in: scrollView).x
 //                        print("Velo: \(veloX)")

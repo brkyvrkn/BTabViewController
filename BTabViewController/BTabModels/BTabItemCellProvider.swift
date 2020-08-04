@@ -13,7 +13,7 @@ import UIKit
 public struct BTabCellProvider {
     public var nib: UINib?
     public var identifier: String
-    public var _class: AnyClass?
+    public var class_: AnyClass?
     public var forSupplementaryViewOfKind: String?
 
     /// Initializer by using class of coder
@@ -21,9 +21,9 @@ public struct BTabCellProvider {
     ///   - reuseIdentifier: Identifier of the custom cell
     ///   - _class: Class of cell
     ///   - forSupplementaryViewOfKind: Set if you need both class and supplementary
-    init(reuseIdentifier: String, _class: AnyClass?, forSupplementaryViewOfKind: String? = nil) {
+    init(reuseIdentifier: String, class_: AnyClass?, forSupplementaryViewOfKind: String? = nil) {
         self.identifier = reuseIdentifier
-        self._class = _class
+        self.class_ = class_
         self.forSupplementaryViewOfKind = forSupplementaryViewOfKind
     }
 
