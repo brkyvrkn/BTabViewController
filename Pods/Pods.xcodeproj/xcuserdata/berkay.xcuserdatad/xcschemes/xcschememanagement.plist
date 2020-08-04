@@ -4,10 +4,20 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Pods-BTabViewController-BTabViewControllerTests.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
 		<key>Pods-BTabViewController-BTabViewControllerTests.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>isShown</key>
 			<true/>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
+		<key>Pods-BTabViewController.xcscheme</key>
+		<dict>
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
@@ -16,7 +26,7 @@
 			<key>isShown</key>
 			<true/>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>3</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
