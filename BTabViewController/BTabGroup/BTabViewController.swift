@@ -134,7 +134,7 @@ open class BTabViewController: UIViewController {
 //        print(String(format: "%@\ntarget=%@\tselected=%@\tindex=%d", "BTabViewController:::::>\(#function)", target, item.title, index))
     }
 
-    open func listTab(_ target: UIViewController, tabSwitched to: BTabItemModel) {
+    open func listTab(_ target: UIViewController, tabSwitched toItem: BTabItemModel) {
 //        print(String(format: "%@\ntarget=%@\tswitched to=%@", "BTabViewController:::::>\(#function)", target, to.title))
     }
 
@@ -149,18 +149,18 @@ open class BTabViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.allowsMultipleSelection = false
         if !cellProvider.isEmpty {
-            for cp in cellProvider {
-                if cp.nib != nil {
-                    if cp.forSupplementaryViewOfKind != nil {
-                        collectionView.register(cp.nib!, forSupplementaryViewOfKind: cp.forSupplementaryViewOfKind!, withReuseIdentifier: cp.identifier)
+            for cProvider in cellProvider {
+                if cProvider.nib != nil {
+                    if cProvider.forSupplementaryViewOfKind != nil {
+                        collectionView.register(cProvider.nib!, forSupplementaryViewOfKind: cProvider.forSupplementaryViewOfKind!, withReuseIdentifier: cProvider.identifier)
                     } else {
-                        collectionView.register(cp.nib!, forCellWithReuseIdentifier: cp.identifier)
+                        collectionView.register(cProvider.nib!, forCellWithReuseIdentifier: cProvider.identifier)
                     }
-                } else if cp.class_ != nil {
-                    if cp.forSupplementaryViewOfKind != nil {
-                        collectionView.register(cp.class_!, forSupplementaryViewOfKind: cp.forSupplementaryViewOfKind!, withReuseIdentifier: cp.identifier)
+                } else if cProvider.class_ != nil {
+                    if cProvider.forSupplementaryViewOfKind != nil {
+                        collectionView.register(cProvider.class_!, forSupplementaryViewOfKind: cProvider.forSupplementaryViewOfKind!, withReuseIdentifier: cProvider.identifier)
                     } else {
-                        collectionView.register(cp.class_!, forCellWithReuseIdentifier: cp.identifier)
+                        collectionView.register(cProvider.class_!, forCellWithReuseIdentifier: cProvider.identifier)
                     }
                 }
             }
@@ -217,11 +217,11 @@ open class BTabViewController: UIViewController {
     /// - Parameter order: Order of the tab with left-most direction
     open func activateTab(order: Int) {
         if order < tabItems.count {
-            for i in 0..<tabItems.count {
-                if i == order {
-                    tabItems[i].setActive(true)
+            for idx in 0..<tabItems.count {
+                if idx == order {
+                    tabItems[idx].setActive(true)
                 } else {
-                    tabItems[i].setActive(false)
+                    tabItems[idx].setActive(false)
                 }
             }
         }
@@ -341,18 +341,18 @@ open class BTabViewController: UIViewController {
         containers.sort(by: { (prev, next) in
             prev.tag < next.tag
         })
-        for t in 0..<self.tabList.count {
-            _ = self.tabList[t]
-            let container = self.containers[t]
+        for tIdx in 0..<self.tabList.count {
+            _ = self.tabList[tIdx]
+            let container = self.containers[tIdx]
 
             container.translatesAutoresizingMaskIntoConstraints = false
             var leadingView: UIView = base
             var trailingView: UIView = base
-            if t - 1 >= 0 {
-                leadingView = self.containers[t - 1]
+            if tIdx - 1 >= 0 {
+                leadingView = self.containers[tIdx - 1]
             }
-            if t + 1 < self.tabList.count {
-                trailingView = self.containers[t + 1]
+            if tIdx + 1 < self.tabList.count {
+                trailingView = self.containers[tIdx + 1]
             }
             NSLayoutConstraint.activate([
                 .init(item: container, attribute: .leading, relatedBy: .equal, toItem: leadingView, attribute: leadingView is UIScrollView ? .leading : .trailing, multiplier: 1, constant: 0),
@@ -451,7 +451,7 @@ extension BTabViewController: UICollectionViewDelegate, UICollectionViewDataSour
         guard horizontalScrollView != nil else { return }
         self.listTab(target, didSelect: item, index: indexPath.row)
         scrollTab(horizontalScrollView!, base: view, toTab: item)
-        if let s = selectedTabItem, s != item {
+        if let sTab = selectedTabItem, sTab != item {
             selectedTabItem = item
             if indicatorView != nil {
                 attachIndicator(instance: indicatorView!, forView: collectionView, selected: selectedTabItem!, forceUpdate: true)
@@ -492,7 +492,7 @@ extension BTabViewController: UIScrollViewDelegate {
 //                print("scroll multiplier: \(viewScrollMultiplier), indicator offset: \(indicatorOffset)")
             if isIndicatorVisible, indicatorView != nil, isIndicatorSlide {
                 for constr in view.constraints {
-                    if let v = constr.firstItem as? UIView, v.tag == 89, constr.firstAttribute == .leading {
+                    if let consV = constr.firstItem as? UIView, consV.tag == 89, constr.firstAttribute == .leading {
                         var newLeading = indicatorLeading
                         let veloX = scrollView.panGestureRecognizer.velocity(in: scrollView).x
 //                        print("Velo: \(veloX)")

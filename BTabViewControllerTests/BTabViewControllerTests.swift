@@ -58,55 +58,55 @@ class BTabViewControllerTests: XCTestCase {
     }
 
     func testTabListModelInit() throws {
-        let vc = UIViewController()
-        let listItem = BTabModel(id: "1", target: vc)
+        let vcTemp = UIViewController()
+        let listItem = BTabModel(id: "1", target: vcTemp)
         XCTAssert(listItem.id == "1")
-        XCTAssertEqual(listItem.target, vc)
+        XCTAssertEqual(listItem.target, vcTemp)
     }
 
     func testTabListModelInit2() throws {
-        let vc = UIViewController()
-        let listItem = BTabModel(id: "1", target: vc)
+        let vcTemp = UIViewController()
+        let listItem = BTabModel(id: "1", target: vcTemp)
         XCTAssert(listItem.id == "1")
         XCTAssertNotEqual(listItem.target, UIViewController())
     }
 
     func testTabListModelInit3() throws {
-        let vc = UIViewController()
-        let listItem = BTabModel(id: "2", target: vc)
+        let vcTemp = UIViewController()
+        let listItem = BTabModel(id: "2", target: vcTemp)
         XCTAssertEqual(listItem.id, "2")
         XCTAssertNotEqual(listItem.target, UIViewController())
     }
 
     func testTabListModelInit4() throws {
-        let vc = UIViewController()
-        let listItem = BTabModel(id: "2", target: vc)
+        let vcTemp = UIViewController()
+        let listItem = BTabModel(id: "2", target: vcTemp)
         XCTAssertNotEqual(listItem.id, "1")
-        XCTAssertEqual(listItem.target, vc)
+        XCTAssertEqual(listItem.target, vcTemp)
     }
 
     func testTabVCInit() throws {
-        let vc = BTabViewController()
-        XCTAssertEqual(vc.containers.count, 0)
-        XCTAssertEqual(vc.tabList.count, 0)
-        XCTAssertEqual(vc.tabItems.count, 0)
-        XCTAssertNil(vc.horizontalScrollView)
+        let vcTemp = BTabViewController()
+        XCTAssertEqual(vcTemp.containers.count, 0)
+        XCTAssertEqual(vcTemp.tabList.count, 0)
+        XCTAssertEqual(vcTemp.tabItems.count, 0)
+        XCTAssertNil(vcTemp.horizontalScrollView)
     }
 
     func testTabVCInit2() throws {
-        let vc = BTabViewController()
-        XCTAssertEqual(vc.containers.count, 0)
-        XCTAssertEqual(vc.tabList.count, 0)
-        XCTAssertEqual(vc.tabItems.count, 0)
-        XCTAssertNil(vc.tabCollectionView)
+        let vcTemp = BTabViewController()
+        XCTAssertEqual(vcTemp.containers.count, 0)
+        XCTAssertEqual(vcTemp.tabList.count, 0)
+        XCTAssertEqual(vcTemp.tabItems.count, 0)
+        XCTAssertNil(vcTemp.tabCollectionView)
     }
 
     func testTabVCInit3() throws {
-        let vc = BTabViewController()
-        XCTAssertEqual(vc.containers.count, 0)
-        XCTAssertEqual(vc.tabList.count, 0)
-        XCTAssertEqual(vc.tabItems.count, 0)
-        XCTAssertNil(vc.selectedTabItem)
+        let vcTemp = BTabViewController()
+        XCTAssertEqual(vcTemp.containers.count, 0)
+        XCTAssertEqual(vcTemp.tabList.count, 0)
+        XCTAssertEqual(vcTemp.tabItems.count, 0)
+        XCTAssertNil(vcTemp.selectedTabItem)
     }
 
     func testTabCollectionInit() throws {

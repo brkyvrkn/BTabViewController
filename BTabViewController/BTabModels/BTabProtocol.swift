@@ -19,6 +19,6 @@ public protocol BTabViewControllerProtocol: class {
     /// - Parameters:
     ///   - target: Container class just activated
     ///   - to: Newly changed tab model
-    func listTab(_ target: UIViewController, tabSwitched to: BTabItemModel)
+    func listTab(_ target: UIViewController, tabSwitched toItem: BTabItemModel)
     func listTab(provideCell: BTabCellProvider) -> UICollectionViewCell
 }
