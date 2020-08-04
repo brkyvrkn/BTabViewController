@@ -58,7 +58,7 @@ open class BTabViewController: UIViewController {
     override open func loadView() {
         super.loadView()
 //        print("BTabViewController:::::>\(#function)")
-        self.cellProvider = [BTabCellProvider(reuseIdentifier: "BTabCell", _class: BTabCell.self)]
+        self.cellProvider = [BTabCellProvider(reuseIdentifier: "BTabCell", class_: BTabCell.self)]
         setView(tabList: self.tabList, tabItems: self.tabItems)
     }
 
@@ -94,7 +94,7 @@ open class BTabViewController: UIViewController {
             attachViews(base: horizontalScrollView!)
             horizontalScrollView?.contentSize = .init(width: CGFloat(containers.count) * view.frame.width,
                                                       height: horizontalScrollView!.frame.height)
-            if selectedTabItem == nil, tabItems.count > 0 {
+            if selectedTabItem == nil, !tabItems.isEmpty {
                 selectedTabItem = tabItems[0]
                 if tabCollectionView != nil, tabCollectionView?.cellForItem(at: IndexPath(item: 0, section: 0)) != nil {
                     tabCollectionView?.selectItem(at: IndexPath(item: 0, section: 0), animated: false, scrollPosition: .left)
@@ -148,7 +148,7 @@ open class BTabViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.allowsMultipleSelection = false
-        if cellProvider.count > 0 {
+        if !cellProvider.isEmpty {
             for cp in cellProvider {
                 if cp.nib != nil {
                     if cp.forSupplementaryViewOfKind != nil {
@@ -156,11 +156,11 @@ open class BTabViewController: UIViewController {
                     } else {
                         collectionView.register(cp.nib!, forCellWithReuseIdentifier: cp.identifier)
                     }
-                } else if cp._class != nil {
+                } else if cp.class_ != nil {
                     if cp.forSupplementaryViewOfKind != nil {
-                        collectionView.register(cp._class!, forSupplementaryViewOfKind: cp.forSupplementaryViewOfKind!, withReuseIdentifier: cp.identifier)
+                        collectionView.register(cp.class_!, forSupplementaryViewOfKind: cp.forSupplementaryViewOfKind!, withReuseIdentifier: cp.identifier)
                     } else {
-                        collectionView.register(cp._class!, forCellWithReuseIdentifier: cp.identifier)
+                        collectionView.register(cp.class_!, forCellWithReuseIdentifier: cp.identifier)
                     }
                 }
             }
@@ -376,7 +376,7 @@ open class BTabViewController: UIViewController {
             container.topAnchor.constraint(equalTo: base.topAnchor, constant: 0),
             container.bottomAnchor.constraint(equalTo: base.bottomAnchor, constant: 0)
         ]
-        if extraConstraints.count > 0 {
+        if !extraConstraints.isEmpty {
             containerConstraints.append(contentsOf: extraConstraints)
         }
         NSLayoutConstraint.activate(containerConstraints)
