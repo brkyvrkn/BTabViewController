@@ -49,7 +49,11 @@ class FirstContainerViewController: BTabViewController {
         super.setView(tabList: lists, tabItems: tabs)
     }
 
-    override func listTab(_ target: UIViewController, tabSwitched toItem: BTabItemModel) {
+    override func listTab(_ target: UIViewController, didSelect item: BTabItemModel, index: Int) {
+        super.listTab(target, didSelect: item, index: index)
+    }
 
+    override func listTab(_ target: UIViewController, tabSwitched toItem: BTabItemModel) {
+        super.listTab(target, tabSwitched: toItem)
     }
 }
